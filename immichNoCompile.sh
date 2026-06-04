@@ -99,17 +99,17 @@ EOF
       msg_ok "Updated Intel OpenVINO dependencies"
     fi
   fi
-  if [[ -f ~/.immich_library_revisions ]]; then
-    #libraries=("libjxl" "libheif" "libraw" "imagemagick" "libvips")
-    libraries=()
-    cd "$BASE_DIR"
-    msg_warn "Checking for updates to custom image-processing libraries (recompile time: 2-15min per library)"
-    $STD git pull
-    for library in "${libraries[@]}"; do
-      compile_"$library"
-    done
-    msg_ok "Image-processing libraries up to date"
-  fi
+  #if [[ -f ~/.immich_library_revisions ]]; then
+  #  #libraries=("libjxl" "libheif" "libraw" "imagemagick" "libvips")
+  #  libraries=()
+  #  cd "$BASE_DIR"
+  #  msg_warn "Checking for updates to custom image-processing libraries (recompile time: 2-15min per library)"
+  #  $STD git pull
+  #  for library in "${libraries[@]}"; do
+  #    compile_"$library"
+  #  done
+  #  msg_ok "Image-processing libraries up to date"
+  #fi
 
   RELEASE="v2.7.5"
   if check_for_gh_release "Immich" "immich-app/immich" "${RELEASE}" "each release is tested individually before the version is updated. Please do not open issues for this"; then
